@@ -5,15 +5,17 @@ import Dashboard from "./components/pages/Dashboars";
 import Inventory from "./components/pages/Inventory";
 import Salesorder from "./components/pages/Salesorder";
 import Report from "./components/pages/Report";
+import Footer from "./components/Footer";
 
 const Layout = () => (
   <>
     <Header />
     <div className="flex">
       <SideBar />
-      <div className="flex-grow p-4 ml-[300px]">
+      <div className="flex-grow p-4 min-h-screen">
         <Outlet />
       </div>
+
     </div>
   </>
 );

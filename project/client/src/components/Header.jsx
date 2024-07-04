@@ -1,4 +1,4 @@
-import { FaSearch } from "react-icons/fa";
+import { CiSearch } from "react-icons/ci";
 import logo from "/assets/logo-horizontal.png";
 
 export default function Header() {
@@ -12,7 +12,7 @@ export default function Header() {
           <div className="relative w-full max-w-md ">
             <input
               type="text"
-              className="w-[256px] h-[36px] px-4 py-1 pl-10 rounded shadow"
+              className="w-64 h-[36px] px-4 py-1 pl-10 rounded shadow text-md focus-visible:ring-0 focus-visible:ring-offset-1 focus-visible:outline-primary"
               placeholder="Search..."
               aria-label="Search"
             />
@@ -22,7 +22,7 @@ export default function Header() {
                 className="p-1 text-black"
                 aria-label="Search button"
               >
-                <FaSearch />
+                <CiSearch />
               </button>
             </span>
           </div>

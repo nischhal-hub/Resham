@@ -39,9 +39,9 @@ export const sidebarData = [
 export default function SideBar() {
   return (
     <div className="w-72 h-full">
-      <div className="fixed h-full w-72 bg-background px-2">
-      <div className="my-2 mb-4">
-        <h1 className="text-[#595c61] text-xl">General</h1>
+      <div className="fixed h-full w-72 bg-background px-6">
+      <div className="my-4">
+        <h1 className="text-[#595c61] text-xl font-bold">General</h1>
       </div>
       <hr />
       <ul className="mt-3 text-[#595c61] font-semibold">
