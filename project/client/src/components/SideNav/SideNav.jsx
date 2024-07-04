@@ -1,10 +1,40 @@
 // components/SideNav/SideNav.js
 import { FaCog } from "react-icons/fa";
-import { MdOutlineDashboardCustomize, MdOutlineInventory2 } from "react-icons/md";
+import {
+  MdOutlineDashboardCustomize,
+  MdOutlineInventory2,
+} from "react-icons/md";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsGraphUp } from "react-icons/bs";
 import { IoIosHelpCircleOutline } from "react-icons/io";
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
+
+export const sidebarData = [
+  {
+    id: 1,
+    title: "Dashboard",
+    path: "/",
+    icon: <MdOutlineDashboardCustomize />,
+  },
+  {
+    id: 2,
+    title: "Inventory",
+    path: "/inventory",
+    icon: <MdOutlineInventory2 />,
+  },
+  {
+    id: 1,
+    title: "Sales Order",
+    path: "/salesorder",
+    icon: <AiOutlineShoppingCart />,
+  },
+  {
+    id: 1,
+    title: "Report",
+    path: "/report",
+    icon: <BsGraphUp />,
+  },
+];
 
 export default function SideBar() {
   return (
@@ -14,50 +44,22 @@ export default function SideBar() {
       </div>
       <hr />
       <ul className="mt-3 text-[#595c61] font-semibold">
-        <li className="mb-2 rounded hover:shadow-2xl py-2">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive ? 'p-2 flex items-center bg-blue-800 text-white rounded-sm' : 'py-2 flex items-center'
-            }
-          >
-            <MdOutlineDashboardCustomize className="h-6 mr-2" />
-            Dashboard
-          </NavLink>
-        </li>
-        <li className="mb-2 rounded hover:shadow-2xl py-2">
-          <NavLink
-            to="/inventory"
-            className={({ isActive }) =>
-              isActive ? 'p-2 flex items-center bg-primary text-white rounded-sm' : 'py-2 flex items-center'
-            }
-          >
-            <MdOutlineInventory2 className="h-6 mr-2" />
-            Inventory
-          </NavLink>
-        </li>
-        <li className="mb-2 rounded hover:shadow-2xl py-2">
-          <NavLink
-            to="/salesorder"
-            className={({ isActive }) =>
-              isActive ? 'p-2 flex items-center bg-blue-800 text-white rounded-sm' : 'py-2 flex items-center'
-            }
-          >
-            <AiOutlineShoppingCart className="h-6 mr-2" />
-            Sales Order
-          </NavLink>
-        </li>
-        <li className="mb-2 rounded hover:shadow-2xl py-2">
-          <NavLink
-            to="/report"
-            className={({ isActive }) =>
-              isActive ? 'p-2 flex items-center bg-blue-800 text-white rounded-sm' : 'py-2 flex items-center'
-            }
-          >
-            <BsGraphUp className="h-6 mr-2" />
-            Report
-          </NavLink>
-        </li>
+        {sidebarData.map((item) => (
+          <li key={item.id} className="mb-2 rounded hover:shadow-2xl py-2">
+            <NavLink
+              to={item.path}
+              className={({ isActive }) =>
+                isActive
+                  ? "p-2 flex items-center bg-blue-800 text-white rounded-sm"
+                  : "py-2 flex items-center"
+              }
+            >
+             <div className="h-6 mr-2">{item.icon}</div>
+              {item.title}
+            </NavLink>
+          </li>
+        ))}
+
       </ul>
       <div className="mt-[32px]">
         <div className="my-2 mb-4">
