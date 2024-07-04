@@ -38,7 +38,8 @@ export const sidebarData = [
 
 export default function SideBar() {
   return (
-    <div className="w-72 bg-background fixed h-full px-4 py-2 mt-[62px]">
+    <div className="w-72 bg-background h-full px-4 py-2 mt-[62px]">
+      <div className="fixed">
       <div className="my-2 mb-4">
         <h1 className="text-[#595c61] text-xl">General</h1>
       </div>
@@ -80,6 +81,8 @@ export default function SideBar() {
           </a>
         </li>
       </ul>
+      </div>
+     
     </div>
   );
 }
