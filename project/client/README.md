@@ -1,8 +1,48 @@
-# React + Vite
+# 💈 Resham - A cloting store management web application.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Technolgy Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| Aspect            | Technology        |
+|-------------------|-------------------|
+| Frontend          | React             |
+| CSS               | Tailwind          |
+| UI components     | Shadcn/ui         |
+| State management  | Zustand           |
+| Query             | Tanstack query    |
+| Tables            | Tanstack table    |
+| Routing           | React router      |
+| Form              | React hook form   |
+| Charts            | Recharts          |
+| Backend           | Supabase          |
+
+
+## 🤨 How to run?
+
+```
+git clone <URL>
+cd Resham/projects/client
+npm i
+npm run dev
+```
+## 👩‍💻 Contributing to project
+
+1. Make a new branch and checkout to that branch :
+` git chekout -b "branchName" `
+
+❗ Note: Follow git branch name conventions while making branch.
+
+2. Make your changes
+3. Then,
+``` 
+git add .
+git commit -m "commit message" 
+//follow commit messege conventions.
+git push
+```
+4. Then create a pull request in github.
+5. After pull request get accepted then,
+```
+git checkout main
+git pull
+```
