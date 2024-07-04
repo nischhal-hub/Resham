@@ -1,4 +1,4 @@
-# 💈 Resham - A cloting store management web application.
+# 💈 Resham - A clothing store management web application.
 
 
 ## 💻 Technolgy Used
