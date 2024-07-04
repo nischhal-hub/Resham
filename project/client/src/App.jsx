@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import SideBar from "./components/SideNav/SideNav";
-import Dashboard from "./components/pages/Dashboars";
+import Dashboard from "./components/pages/Dashboard";
 import Inventory from "./components/pages/Inventory";
 import Salesorder from "./components/pages/Salesorder";
 import Report from "./components/pages/Report";
