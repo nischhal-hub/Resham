@@ -1,5 +1,22 @@
 # 💈 Resham - A cloting store management web application.
 
+
+## Technolgy Used
+
+| Aspect            | Technology        |
+|-------------------|-------------------|
+| Frontend          | React             |
+| CSS               | Tailwind          |
+| UI components     | Shadcn/ui         |
+| State management  | Zustand           |
+| Query             | Tanstack query    |
+| Tables            | Tanstack table    |
+| Routing           | React router      |
+| Form              | React hook form   |
+| Charts            | Recharts          |
+| Backend           | Supabase          |
+
+
 ## 🤨 How to run?
 
 ```
