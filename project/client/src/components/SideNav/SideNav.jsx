@@ -38,15 +38,15 @@ export const sidebarData = [
 
 export default function SideBar() {
   return (
-    <div className="w-72 bg-background h-full px-4 py-2 mt-[62px]">
-      <div className="fixed">
+    <div className="w-72 h-full">
+      <div className="fixed h-full w-72 bg-background px-2">
       <div className="my-2 mb-4">
         <h1 className="text-[#595c61] text-xl">General</h1>
       </div>
       <hr />
       <ul className="mt-3 text-[#595c61] font-semibold">
         {sidebarData.map((item) => (
-          <li key={item.id} className="mb-2 rounded  py-2 ">
+          <li key={item.id} className="mb-2 rounded py-2 ">
             <NavLink
               to={item.path}
               className={({ isActive }) =>
