@@ -6,13 +6,14 @@ import Inventory from "./components/pages/Inventory";
 import Salesorder from "./components/pages/Salesorder";
 import Report from "./components/pages/Report";
 import Footer from "./components/Footer";
-
+import { ScrollRestoration } from "react-router-dom";
 const Layout = () => (
   <>
     <Header />
     <div className="flex">
       <SideBar />
       <div className="flex-grow p-4 min-h-screen">
+        <ScrollRestoration />
         <Outlet />
       </div>
 
