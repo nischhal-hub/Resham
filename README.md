@@ -1,7 +1,7 @@
 # 💈 Resham - A cloting store management web application.
 
 
-## Technolgy Used
+## 💻 Technolgy Used
 
 | Aspect            | Technology        |
 |-------------------|-------------------|
@@ -28,7 +28,7 @@ npm run dev
 ## 👩‍💻 Contributing to project
 
 1. Make a new branch and checkout to that branch :
-` git chekout -b "branchName" `
+` git checkout -b "branchName" `
 
 ❗ Note: Follow git branch name conventions while making branch.
 
