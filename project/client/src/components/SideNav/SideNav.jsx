@@ -38,23 +38,23 @@ export const sidebarData = [
 
 export default function SideBar() {
   return (
-    <div className="w-[292px] bg-[#f4f5fc] fixed h-[837px] px-4 py-2 mt-[62px]">
+    <div className="w-72 bg-background fixed h-full px-4 py-2 mt-[62px]">
       <div className="my-2 mb-4">
         <h1 className="text-[#595c61] text-xl">General</h1>
       </div>
       <hr />
       <ul className="mt-3 text-[#595c61] font-semibold">
         {sidebarData.map((item) => (
-          <li key={item.id} className="mb-2 rounded hover:shadow-2xl py-2">
+          <li key={item.id} className="mb-2 rounded  py-2 ">
             <NavLink
               to={item.path}
               className={({ isActive }) =>
                 isActive
-                  ? "p-2 flex items-center bg-blue-800 text-white rounded-sm"
-                  : "py-2 flex items-center"
+                  ? "p-2 flex items-center bg-primary text-white rounded-sm hover:pl-2 duration-300 ease-in-out"
+                  : "py-2 flex items-center hover:pl-2 duration-300 ease-in-out hover:bg-gray-200"
               }
             >
-             <div className="h-6 mr-2">{item.icon}</div>
+              <div className="h-auto mr-2 my-auto ">{item.icon}</div>
               {item.title}
             </NavLink>
           </li>

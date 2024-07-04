@@ -5,7 +5,7 @@ import Dashboars from './components/pages/Dashboars';
 import Inventory from './components/pages/Inventory';
 import Salesorder from './components/pages/Salesorder';
 import Report from './components/pages/Report';
-import Maincontent from './components/maincontent';
+
 
 
 const Layout = () => (
@@ -37,7 +37,7 @@ function App() {
   return (
     <div className='bg-[#e8e8e8] flex flex-col min-h-screen'>
       <RouterProvider router={router} />
-      {/* <Maincontent/> */}
+   
     </div>
   );
 }
