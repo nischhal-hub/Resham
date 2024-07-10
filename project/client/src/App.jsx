@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 import Header from "./components/Header";
-import SideBar from "./components/SideNav/SideNav";
+import SideBar from "./components/sidebar/Sidebar";
 import Dashboard from "./components/pages/Dashboard";
 import Inventory from "./components/pages/Inventory";
 import Salesorder from "./components/pages/Salesorder";
@@ -9,11 +9,11 @@ import Footer from "./components/Footer";
 import { ScrollRestoration } from "react-router-dom";
 const Layout = () => (
   <>
-      <Header />
-    <div className="flex w-screen overflow-hidden">
-      <div className="flex w-full overflow-hidden">
+    <Header />
+    <div className="flex overflow-hidden">
+      <div className="flex w-full">
         <SideBar />
-        <div className="flex p-4 bg-background w-full overflow-y-scroll">
+        <div className="flex p-4 bg-background w-full mx-auto">
           <ScrollRestoration />
           <Outlet />
         </div>
