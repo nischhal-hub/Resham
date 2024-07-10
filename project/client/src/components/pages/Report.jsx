@@ -1,7 +1,11 @@
-import React from 'react'
+import UserTable from '@/features/users/UserTable';
 
 export default function Report() {
+  
   return (
-    <div>Report</div>
-  )
+    <div>
+      <UserTable/>
+     
+    </div>
+  );
 }
