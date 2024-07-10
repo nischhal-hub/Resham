@@ -152,7 +152,7 @@ export const Cards = (prop) => {
 const Dashboard = () => {
   const [graphData, setGraphData] = useState(data);
   return (
-    <div className="w-full overflow-y-scroll">
+    <div className="w-full ml-64 min-h-screen">
       <h1 className="text-xl font-bold">Dashboard</h1>
       <div className="border-t-2 border-solid border-gray-300 my-2"></div>
       <div>
@@ -188,9 +188,6 @@ const Dashboard = () => {
             </BarChart>
           </ResponsiveContainer>
         </div>
-      </div>
-      <div>
-        lorem2000
       </div>
     </div>
   );

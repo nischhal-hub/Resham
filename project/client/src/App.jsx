@@ -10,10 +10,10 @@ import { ScrollRestoration } from "react-router-dom";
 const Layout = () => (
   <>
       <Header />
-    <div className="flex w-screen h-screen overflow-hidden">
-      <div className="flex">
+    <div className="flex w-screen overflow-hidden">
+      <div className="flex w-full overflow-hidden">
         <SideBar />
-        <div className="flex p-4 bg-background w-full">
+        <div className="flex p-4 bg-background w-full overflow-y-scroll">
           <ScrollRestoration />
           <Outlet />
         </div>

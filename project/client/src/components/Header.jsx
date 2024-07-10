@@ -3,7 +3,7 @@ import logo from "/assets/logo-horizontal.png";
 
 export default function Header() {
   return (
-    <nav className=" w-full h-16 z-40 ">
+    <nav className=" w-full h-16 z-40">
       <div className="bg-white px-4 py-4 shadow-sm w-full flex items-center text-xl justify-between fixed top-0">
         <div>
         <img src={logo} alt="Logo" className="w-40 mr-2" />
