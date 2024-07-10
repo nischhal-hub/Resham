@@ -38,20 +38,20 @@ export const sidebarData = [
 
 export default function SideBar() {
   return (
-    <div className="w-72 h-full">
-      <div className="fixed h-full w-72 bg-background px-6">
-      <div className="my-4">
-        <h1 className="text-[#595c61] text-xl font-bold">General</h1>
+    <div className="fixed w-64 h-full ">
+      <div className="block h-full bg-background px-6">
+      <div className="pt-4 pb-3">
+        <h1 className="text-slate-600 text-md font-bold">General</h1>
       </div>
       <hr />
-      <ul className="mt-3 text-[#595c61] font-semibold">
+      <ul className="mt-3 text-slate-600">
         {sidebarData.map((item) => (
-          <li key={item.id} className="mb-2 rounded py-2 ">
+          <li key={item.id} className=" rounded py-1">
             <NavLink
               to={item.path}
               className={({ isActive }) =>
                 isActive
-                  ? "p-2 flex items-center bg-primary text-white rounded-sm hover:pl-2 duration-300 ease-in-out"
+                  ? "p-2 flex items-center bg-primary text-white font-bold rounded-sm hover:pl-2 duration-300 ease-in-out"
                   : "py-2 flex items-center hover:pl-2 duration-300 ease-in-out hover:bg-gray-200"
               }
             >
@@ -82,7 +82,6 @@ export default function SideBar() {
         </li>
       </ul>
       </div>
-     
     </div>
   );
 }

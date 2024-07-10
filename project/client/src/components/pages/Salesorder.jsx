@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function Salesorder() {
   return (
-    <div>Salesorder</div>
+    <div className='w-full ml-64 min-h-screen'>
+      Salesorder
+    </div>
   )
 }
