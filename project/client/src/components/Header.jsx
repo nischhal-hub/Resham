@@ -6,7 +6,7 @@ export default function Header() {
     <nav className=" w-full h-16 z-40">
       <div className="bg-white px-4 py-4 shadow-sm w-full flex items-center text-xl justify-between fixed top-0">
         <div>
-        <img src={logo} alt="Logo" className="w-32 mr-2" />
+        <img src={logo} alt="Logo" className="w-40 mr-2" />
         </div>
         <div className="flex items-center gap-x-[24px] ">
           <div className="relative w-full max-w-md ">

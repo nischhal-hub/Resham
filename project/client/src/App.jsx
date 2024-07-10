@@ -9,14 +9,15 @@ import Footer from "./components/Footer";
 import { ScrollRestoration } from "react-router-dom";
 const Layout = () => (
   <>
-    <Header />
-    <div className="flex">
-      <SideBar />
-      <div className="flex-grow p-4 min-h-screen">
-        <ScrollRestoration />
-        <Outlet />
+      <Header />
+    <div className="flex w-screen overflow-hidden">
+      <div className="flex w-full overflow-hidden">
+        <SideBar />
+        <div className="flex p-4 bg-background w-full overflow-y-scroll">
+          <ScrollRestoration />
+          <Outlet />
+        </div>
       </div>
-
     </div>
   </>
 );
