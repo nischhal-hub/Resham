@@ -17,6 +17,8 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import {columns} from "../dashboard-table/columns";
+import DataTable from "../dashboard-table/data-table";
 import { GoGraph } from "react-icons/go";
 import { BsCalendar3 } from "react-icons/bs";
 import { FiDollarSign } from "react-icons/fi";
@@ -133,16 +135,44 @@ export const data = [
     amt: 2100,
   },
 ];
+
+export const tableContents = [
+  {
+    id: "1",
+    channel: "Sales Channel",
+    draft: "Draft",
+    packed: "Packed",
+    shipped: "Shipped",
+    invoiced: "Invoiced",
+  },
+  {
+    id: "2",
+    channel: "Warehouse",
+    draft: "Draft",
+    packed: "Packed",
+    shipped: "Shipped",
+    invoiced: "Invoiced",
+  },
+  {
+    id: "3",
+    channel: "Direct",
+    draft: "Draft",
+    packed: "Packed",
+    shipped: "Shipped",
+    invoiced: "Invoiced",
+  },
+];
+
 export const Cards = (prop) => {
   const { id, title, description, icon, color, bgColor } = prop;
   return (
-    <Card className="py-6" key={id}>
-      <FlexWrapper className="mx-4 items-center justify-around">
+    <Card className="py-6 flex items-center justify-center" key={id}>
+      <FlexWrapper className="items-center justify-around max-w-44 gap-10">
         <div className={`w-auto p-2 ${bgColor} rounded-full`}>
           <div className={color}>{icon}</div>
         </div>
         <CardContent className="h-auto p-0">
-          <p className="text-md font-bold text-gray-700">{title}</p>
+          <p className={`text-xl font-bold ${color}`}>{title}</p>
           <p className="text-xs text-gray-700">{description}</p>
         </CardContent>
       </FlexWrapper>
@@ -151,6 +181,7 @@ export const Cards = (prop) => {
 };
 const Dashboard = () => {
   const [graphData, setGraphData] = useState(data);
+  const [tableData, setTableData] = useState(tableContents);
   return (
     <div className="w-full ml-64 min-h-screen">
       <h1 className="text-xl font-bold">Dashboard</h1>
@@ -188,6 +219,11 @@ const Dashboard = () => {
             </BarChart>
           </ResponsiveContainer>
         </div>
+      </div>
+
+      {/* Table  */}
+      <div className="mt-4">
+        <DataTable columns={columns} data={tableData}></DataTable>  
       </div>
     </div>
   );
