@@ -166,13 +166,13 @@ export const tableContents = [
 export const Cards = (prop) => {
   const { id, title, description, icon, color, bgColor } = prop;
   return (
-    <Card className="py-6" key={id}>
-      <FlexWrapper className="mx-4 items-center justify-around">
+    <Card className="py-6 flex items-center justify-center" key={id}>
+      <FlexWrapper className="items-center justify-around max-w-44 gap-10">
         <div className={`w-auto p-2 ${bgColor} rounded-full`}>
           <div className={color}>{icon}</div>
         </div>
         <CardContent className="h-auto p-0">
-          <p className="text-md font-bold text-gray-700">{title}</p>
+          <p className={`text-xl font-bold ${color}`}>{title}</p>
           <p className="text-xs text-gray-700">{description}</p>
         </CardContent>
       </FlexWrapper>
