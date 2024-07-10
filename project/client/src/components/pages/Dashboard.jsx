@@ -7,7 +7,16 @@ import {
   CardTitle,
   FlexWrapper,
 } from "@/components/ui/card";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 import { GoGraph } from "react-icons/go";
 import { BsCalendar3 } from "react-icons/bs";
 import { FiDollarSign } from "react-icons/fi";
@@ -52,73 +61,73 @@ export const cardData = [
 
 export const data = [
   {
-    name: 'Jan',
+    name: "Jan",
     stockIn: 4000,
     stockOut: 2400,
     amt: 2400,
   },
   {
-    name: 'Feb',
+    name: "Feb",
     stockIn: 3000,
     stockOut: 1398,
     amt: 2210,
   },
   {
-    name: 'Mar',
+    name: "Mar",
     stockIn: 2000,
     stockOut: 9800,
     amt: 2290,
   },
   {
-    name: 'Apr',
+    name: "Apr",
     stockIn: 2780,
     stockOut: 3908,
     amt: 2000,
   },
   {
-    name: 'May',
+    name: "May",
     stockIn: 1890,
     stockOut: 4800,
     amt: 2181,
   },
   {
-    name: 'Jun',
+    name: "Jun",
     stockIn: 2390,
     stockOut: 3800,
     amt: 2500,
   },
   {
-    name: 'Jul',
+    name: "Jul",
     stockIn: 3490,
     stockOut: 4300,
     amt: 2100,
   },
   {
-    name: 'Aug',
+    name: "Aug",
     stockIn: 3490,
     stockOut: 4300,
     amt: 2100,
   },
   {
-    name: 'Sep',
+    name: "Sep",
     stockIn: 3490,
     stockOut: 4300,
     amt: 2100,
   },
   {
-    name: 'Oct',
+    name: "Oct",
     stockIn: 3490,
     stockOut: 4300,
     amt: 2100,
   },
   {
-    name: 'Nov',
+    name: "Nov",
     stockIn: 3490,
     stockOut: 4300,
     amt: 2100,
   },
   {
-    name: 'Dec',
+    name: "Dec",
     stockIn: 3490,
     stockOut: 4300,
     amt: 2100,
@@ -143,7 +152,7 @@ export const Cards = (prop) => {
 const Dashboard = () => {
   const [graphData, setGraphData] = useState(data);
   return (
-    <div>
+    <div className="w-full overflow-y-scroll">
       <h1 className="text-xl font-bold">Dashboard</h1>
       <div className="border-t-2 border-solid border-gray-300 my-2"></div>
       <div>
@@ -154,29 +163,34 @@ const Dashboard = () => {
           ))}
         </div>
       </div>
-      <div className="bg-white h-96 rounded-md mt-4">
-      <ResponsiveContainer width="100%" height="100%">
+      <div className="h-auto bg-white rounded-md mt-4 shadow-md">
         <h2 className="text-md font-semibold pt-4 mx-4">Stock Report</h2>
-        <BarChart
-          width={500}
-          height={300}
-          data={graphData}
-          margin={{
-            top: 40,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="stockIn" stackId="a" fill="#04B4FC" />
-          <Bar dataKey="stockOut" stackId="a" fill="#6C11D9" />
-        </BarChart>
-      </ResponsiveContainer>
+        <div className="h-96">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart
+              width={500}
+              height={300}
+              data={graphData}
+              margin={{
+                top: 40,
+                right: 30,
+                left: 20,
+                bottom: 5,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="stockIn" stackId="a" fill="#04B4FC" />
+              <Bar dataKey="stockOut" stackId="a" fill="#6C11D9" />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+      <div>
+        lorem2000
       </div>
     </div>
   );

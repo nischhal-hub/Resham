@@ -38,13 +38,13 @@ export const sidebarData = [
 
 export default function SideBar() {
   return (
-    <div className="w-72 h-full">
-      <div className="fixed h-full w-72 bg-background px-6">
-      <div className="my-4">
-        <h1 className="text-[#595c61] text-xl font-bold">General</h1>
+    <div className="w-72 h-full ">
+      <div className="block h-full bg-background px-6">
+      <div className="py-4">
+        <h1 className="text-slate-600 text-xl font-bold">General</h1>
       </div>
       <hr />
-      <ul className="mt-3 text-[#595c61] font-semibold">
+      <ul className="mt-3 text-slate-600 font-semibold">
         {sidebarData.map((item) => (
           <li key={item.id} className="mb-2 rounded py-2 ">
             <NavLink
@@ -82,7 +82,6 @@ export default function SideBar() {
         </li>
       </ul>
       </div>
-     
     </div>
   );
 }
