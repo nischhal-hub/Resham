@@ -1,11 +1,11 @@
 import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
-import Header from "./components/Header";
-import SideBar from "./components/sidebar/Sidebar";
+import Header from "./components/globals/Header";
+import SideBar from "./components/globals/Sidebar";
 import Dashboard from "./components/pages/Dashboard";
 import Inventory from "./components/pages/Inventory";
 import Salesorder from "./components/pages/Salesorder";
 import Report from "./components/pages/Report";
-import Footer from "./components/Footer";
+import Footer from "./components/globals/Footer";
 import { Toaster } from "react-hot-toast";
 import { ScrollRestoration } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
