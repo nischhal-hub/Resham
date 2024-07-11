@@ -1,4 +1,4 @@
-import UserTable from '@/features/users/UserTable';
+import UserTable from './_components/UserTable';
 
 export default function Report() {
   
