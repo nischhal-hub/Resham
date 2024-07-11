@@ -20,15 +20,15 @@ export default function DataTable({ columns, data }) {
     });
 
     return (
-        <div className="rounded-md bg-white shadow-md">
+        <div className="rounded-md bg-white shadow-md ">
             <h2 className="text-md font-semibold p-4 ">Sales Order</h2>
-            <Table className="">
-                <TableHeader >
+            <Table className="rounded-md" >
+                <TableHeader className="bg-primary" >
                     {table.getHeaderGroups().map((headerGroup) => (
-                        <TableRow key={headerGroup.id}>
+                        <TableRow key={headerGroup.id} >
                             {headerGroup.headers.map((header) => {
                                 return (
-                                    <TableHead key={header.id}>
+                                    <TableHead key={header.id} >
                                         {header.isPlaceholder
                                             ? null
                                             : flexRender(
