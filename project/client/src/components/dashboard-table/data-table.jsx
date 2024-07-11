@@ -13,7 +13,7 @@ import {
     TableRow,
 } from "@/components/ui/table";
 import { useState } from "react";
-
+import { DataTablePagination } from "../ui/pagination";
 export default function DataTable({ columns, data }) {
     const [sorting,setSorting] = useState([])
     const table = useReactTable({
@@ -72,6 +72,7 @@ export default function DataTable({ columns, data }) {
                     )}
                 </TableBody>
             </Table>
+            <DataTablePagination table={table} />
         </div>
     );
 }
