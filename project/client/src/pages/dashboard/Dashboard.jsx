@@ -17,8 +17,8 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import {columns} from "../dashboard-table/columns";
-import DataTable from "../dashboard-table/data-table";
+import {columns} from "./_components/columns";
+import DataTable from "@/components/table/data-table";
 import { GoGraph } from "react-icons/go";
 import { BsCalendar3 } from "react-icons/bs";
 import { FiDollarSign } from "react-icons/fi";
