@@ -2,6 +2,7 @@ import {
     flexRender,
     getCoreRowModel,
     useReactTable,
+    getSortedRowModel,
 } from "@tanstack/react-table";
 import {
     Table,
@@ -11,14 +12,21 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
+import { useState } from "react";
 
 export default function DataTable({ columns, data }) {
+    const [sorting,setSorting] = useState([])
     const table = useReactTable({
         data,
         columns,
         getCoreRowModel: getCoreRowModel(),
+        onSortingChange: setSorting,
+        getSortedRowModel: getSortedRowModel(),
+        state: {
+            sorting,
+        },
     });
-
+    
     return (
         <div className="rounded-md bg-white shadow-md ">
             <h2 className="text-md font-semibold p-4 ">Sales Order</h2>
