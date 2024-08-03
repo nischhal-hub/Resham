@@ -13,17 +13,32 @@ export default async function getUsers() {
 }
 
 
-export  async function deleteUsers(id)
+export async function deleteUsers(id)
 {
-  
+    
 const { error } = await supabase
 .from('Users')
 .delete()
-.eq('id',id)
+.eq('id', id);
 if(error)
-  {
-      console.error(error);
-      throw new Error("User could not be delete")
+    {
+        console.error(error);
+        throw new Error("Cabin could not be delete")
 
-  }
+    }
+
+}
+
+export   async function createUser(newUser)
+{
+    
+let { data:user, error } = await supabase
+.from('Users')
+.insert([ newUser])
+.select()
+if(error) {
+    console.log(error);
+    throw new Error("User could not be created");
+}
+return user;
 }

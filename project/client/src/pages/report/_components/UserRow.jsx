@@ -2,7 +2,7 @@ import { deleteUsers } from '@/services/apiUser';
 import { useQueryClient, useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 
-export default function UserRow({ user }) {
+export default function UserRow({ user}) {
   const queryClient = useQueryClient();
   const { user_id, user_name, user_contact, user_role, user_address } = user;
 
@@ -10,11 +10,9 @@ export default function UserRow({ user }) {
     mutationFn: deleteUsers,
     onSuccess: () => {
       toast.success('Data deleted successfully');
-      queryClient.invalidateQueries({
-        queryKey: ['users'],
-      });
+      queryClient.invalidateQueries({ queryKey: ['users'] });
     },
-    onError: (err) => toast.error(err.message),
+    onError: () => toast.error("User canot deleted"),
   });
 
   return (
@@ -24,8 +22,14 @@ export default function UserRow({ user }) {
       <p className="text-[1rem] font-semibold text-gray-600">{user_contact}</p>
       <p className="text-[1rem] font-semibold text-gray-600">{user_role}</p>
       <p className="text-[1rem] font-semibold text-gray-600">{user_address}</p>
-      <button onClick={() => mutate(user_id)} disabled={isDeleting}>
-        Delete
+      <button
+        onClick={() => {
+          console.log('Deleting user with ID:', user_id);
+          mutate(user_id);
+        }}
+        disabled={isDeleting}
+      >
+        {isDeleting ? 'Deleting...' : 'Delete'}
       </button>
     </div>
   );

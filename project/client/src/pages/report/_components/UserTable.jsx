@@ -1,4 +1,3 @@
-import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import getUsers from '@/services/apiUser';
 import UserRow from './UserRow';
@@ -26,8 +25,8 @@ export default function UserTable() {
                 <div>User Role</div>
                 <div>User Address</div>
             </header>
-            {users.map(user => (
-                <UserRow user={user} key={user.user_id} /> // Ensure the key matches the unique identifier of the user object
+            {users.map(users => (
+                <UserRow user={users} key={users.id} /> // Corrected prop name to 'user'
             ))}
         </div>
     );
