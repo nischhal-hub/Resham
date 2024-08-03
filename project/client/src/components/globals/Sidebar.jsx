@@ -1,5 +1,5 @@
 // components/SideNav/SideNav.js
-import { FaCog } from "react-icons/fa";
+import { FaCog, FaUser } from "react-icons/fa";
 import {
   MdOutlineDashboardCustomize,
   MdOutlineInventory2,
@@ -30,9 +30,9 @@ export const sidebarData = [
   },
   {
     id: 1,
-    title: "Report",
-    path: "/report",
-    icon: <BsGraphUp />,
+    title: "User",
+    path: "/user",
+    icon: <FaUser />,
   },
 ];
 

@@ -4,7 +4,7 @@ import SideBar from "@/components/globals/Sidebar";
 import Dashboard from "@/pages/dashboard/Dashboard";
 import Inventory from "@/pages/inventory/Inventory";
 import Salesorder from "@/pages/sales-order/Salesorder";
-import Report from "@/pages/report/Report";
+import User from "@/pages/users/Report";
 import Footer from "@/components/globals/Footer";
 import { Toaster } from "react-hot-toast";
 import { ScrollRestoration } from "react-router-dom";
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Dashboard /> },
       { path: "inventory", element: <Inventory /> },
       { path: "salesorder", element: <Salesorder /> },
-      { path: "report", element: <Report /> },
+      { path: "user", element: <User /> },
     ],
   },
 ]);
