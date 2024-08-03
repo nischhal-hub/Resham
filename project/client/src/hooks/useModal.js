@@ -1,9 +1,8 @@
-import useStore from "../context/modalContext";
+import { useState } from "react";
 const useModal = () => {
-    
-    const isOpen = useStore((state) => state.isOpen);
-    const open = useStore((state) => state.onOpen);
-    const close = useStore((state) => state.onClose);
+    const [isOpen , setIsOpen] = useState(false);
+    const open = () => {setIsOpen(true)};
+    const close = () => {setIsOpen(false)};
     return { isOpen, open, close };
 };
 

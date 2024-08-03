@@ -1,10 +1,8 @@
-import useModal from "@/hooks/useModal";
 import React from "react";
 import ReactDOM from "react-dom";
 import { FaRegTimesCircle } from "react-icons/fa";
 
-const Modal = ({ children }) => {
-    const { close } = useModal();
+const Modal = ({ children,close }) => {
     const modalRoot = document.getElementById("modal-root");
 
     return ReactDOM.createPortal(
