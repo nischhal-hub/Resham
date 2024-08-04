@@ -4,11 +4,12 @@ import SideBar from "@/components/globals/Sidebar";
 import Dashboard from "@/pages/dashboard/Dashboard";
 import Inventory from "@/pages/inventory/Inventory";
 import Salesorder from "@/pages/sales-order/Salesorder";
-import Report from "@/pages/report/Report";
+import User from "@/pages/users/users";
 import Footer from "@/components/globals/Footer";
 import { Toaster } from "react-hot-toast";
 import { ScrollRestoration } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import RightSidebar from "./components/globals/RightSidebar";
 const querryClient= new QueryClient({
   defaultOptions: {
     queries:{
@@ -22,10 +23,11 @@ const Layout = () => (
     <div className="flex overflow-hidden">
       <div className="flex w-full">
         <SideBar />
-        <div className="flex p-4 bg-background w-full mx-auto">
+        <div className="flex p-4 bg-background w-full mx-auto mr-64 ml-64">
           <ScrollRestoration />
           <Outlet />
         </div>
+        <RightSidebar />
       </div>
     </div>
   </>
@@ -39,7 +41,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Dashboard /> },
       { path: "inventory", element: <Inventory /> },
       { path: "salesorder", element: <Salesorder /> },
-      { path: "report", element: <Report /> },
+      { path: "user", element: <User /> },
     ],
   },
 ]);

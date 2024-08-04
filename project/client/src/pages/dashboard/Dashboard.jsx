@@ -183,7 +183,7 @@ const Dashboard = () => {
   const [graphData, setGraphData] = useState(data);
   const [tableData, setTableData] = useState(tableContents);
   return (
-    <div className="w-full ml-64 min-h-screen">
+    <div className="w-full min-h-screen">
       <h1 className="text-xl font-bold">Dashboard</h1>
       <div className="border-t-2 border-solid border-gray-300 my-2"></div>
       <div>

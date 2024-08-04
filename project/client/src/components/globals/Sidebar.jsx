@@ -1,5 +1,5 @@
 // components/SideNav/SideNav.js
-import { FaCog } from "react-icons/fa";
+import { FaCog, FaUser } from "react-icons/fa";
 import {
   MdOutlineDashboardCustomize,
   MdOutlineInventory2,
@@ -30,15 +30,15 @@ export const sidebarData = [
   },
   {
     id: 1,
-    title: "Report",
-    path: "/report",
-    icon: <BsGraphUp />,
+    title: "User",
+    path: "/user",
+    icon: <FaUser />,
   },
 ];
 
 export default function SideBar() {
   return (
-    <div className="fixed w-64 h-full ">
+    <div className="fixed w-64 h-full">
       <div className="block h-full bg-background px-6">
       <div className="pt-4 pb-3">
         <h1 className="text-slate-600 text-md font-bold">General</h1>
