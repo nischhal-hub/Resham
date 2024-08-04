@@ -38,7 +38,7 @@ export const sidebarData = [
 
 export default function SideBar() {
   return (
-    <div className="fixed w-64 h-full ">
+    <div className="fixed w-64 h-full">
       <div className="block h-full bg-background px-6">
       <div className="pt-4 pb-3">
         <h1 className="text-slate-600 text-md font-bold">General</h1>

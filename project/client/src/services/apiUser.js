@@ -19,7 +19,7 @@ export async function deleteUsers(id)
 const { error } = await supabase
 .from('Users')
 .delete()
-.eq('id', id);
+.eq('user_id', id);
 if(error)
     {
         console.error(error);

@@ -5,8 +5,7 @@ import Modal from './Modal'
 import getModal from '../modals/data'
 
 const ModalButton = ({ variant, size, className, modal }) => {
-    const { open, isOpen,close } = useModal();
-
+    const { isOpen,open,close } = useModal();
     return (
         <>
             <Button variant={variant || "default"} size={size || "default"} className={className} onClick={open}>{modal?.label || "No label"}</Button>

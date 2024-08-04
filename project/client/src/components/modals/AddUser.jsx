@@ -3,13 +3,14 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 const AddUser = () => {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset,close, formState: { errors } } = useForm();
   const queryClient = useQueryClient();
   const { mutate, isLoading } = useMutation({
     mutationFn: createUser,
     onSuccess: () => {
       toast.success("Data created successfully");
       queryClient.invalidateQueries(["cabins"]);
+      close();
       reset();
     },
     onError: () => {
@@ -26,7 +27,6 @@ const AddUser = () => {
   }
 
   return (
-   
         <form onSubmit={handleSubmit(onSubmit, onError)}>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="user_name">

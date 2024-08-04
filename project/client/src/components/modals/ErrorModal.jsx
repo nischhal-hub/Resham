@@ -2,9 +2,11 @@ import React from 'react'
 
 const ErrorModal = () => {
   return (
-    <div className='flex items-center justify-center'>
+    <div className='items-center justify-center my-auto'>
         <h1>Please define the props properly.</h1>
-        <p>Example:</p>
+        <div>
+        <p className='text-left font-semibold'>Example:</p>
+        </div>
         <div>
         <pre>
           <code>
