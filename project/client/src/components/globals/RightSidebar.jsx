@@ -30,7 +30,7 @@ const RightSidebar = () => {
         setModalKey('ADD_PRODUCT_MODAL');
         open();
       }
-      if (e.key === "n" && (e.metaKey || e.ctrlKey)) {
+      if (e.key === "b" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault()
         setModalKey('CREATE_ORDER_MODAL');
         open();
@@ -98,7 +98,7 @@ const RightSidebar = () => {
             </div></li>
             <li><div className="flex items-center justify-between text-gray-700">
               <p className="flex items-center gap-2 font-semibold"><TiDocumentAdd size={20} /> Create Order</p>
-              <p className="text-sm">Ctrl + N</p>
+              <p className="text-sm">Ctrl + B</p>
             </div></li>
             <li><div className="flex items-center justify-between text-gray-700">
               <p className="flex items-center gap-2 font-semibold"><FaTruck size={20} /> Add Supplier</p>
