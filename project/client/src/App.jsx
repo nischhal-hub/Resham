@@ -11,6 +11,7 @@ import { ScrollRestoration } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import RightSidebar from "./components/globals/RightSidebar";
 import Category from "./pages/category/Category";
+import Suppliers from "./pages/suppliers/Suppliers";
 const querryClient= new QueryClient({
   defaultOptions: {
     queries:{
@@ -44,6 +45,7 @@ const router = createBrowserRouter([
       { path: "salesorder", element: <Salesorder /> },
       { path: "user", element: <User /> },
       { path: "category", element: <Category /> },
+      { path: "supplier", element: <Suppliers /> },
     ],
   },
 ]);

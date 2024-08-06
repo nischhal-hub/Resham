@@ -1,10 +1,6 @@
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
   FlexWrapper,
 } from "@/components/ui/card";
 import {
@@ -24,6 +20,7 @@ import { BsCalendar3 } from "react-icons/bs";
 import { FiDollarSign } from "react-icons/fi";
 import { PiBagSimple } from "react-icons/pi";
 import { useState } from "react";
+import PageHeader from '@/components/ui/page-header'
 
 export const cardData = [
   {
@@ -184,8 +181,7 @@ const Dashboard = () => {
   const [tableData, setTableData] = useState(tableContents);
   return (
     <div className="w-full min-h-screen">
-      <h1 className="text-xl font-bold">Dashboard</h1>
-      <div className="border-t-2 border-solid border-gray-300 my-2"></div>
+      <PageHeader title="Dashboard" />
       <div>
         <h2 className="text-md font-semibold mb-2">Sales Summary</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

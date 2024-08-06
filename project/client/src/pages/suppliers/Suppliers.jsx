@@ -1,7 +1,7 @@
 import PageHeader from '@/components/ui/page-header'
 import React from 'react'
 
-const Category = () => {
+const Suppliers = () => {
     return (
         <div className="w-full min-h-screen">
             <PageHeader title="Category" />
@@ -9,4 +9,4 @@ const Category = () => {
   )
 }
 
-export default Category
+export default Suppliers
