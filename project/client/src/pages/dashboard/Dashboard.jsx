@@ -219,7 +219,7 @@ const Dashboard = () => {
 
       {/* Table  */}
       <div className="mt-4">
-        <DataTable columns={columns} data={tableData}></DataTable>  
+        <DataTable columns={columns} data={tableData} title={"Sales Order"}></DataTable>  
       </div>
     </div>
   );

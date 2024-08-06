@@ -9,7 +9,7 @@ const Modal = ({ children,close }) => {
         <div className="w-full h-full fixed z-50 bg-primary/50 flex justify-center items-center">
             <div className="modal relative min-w-[500px] min-h-[200px] bg-white rounded-md p-4">
                 <div className="absolute top-4 right-4 cursor-pointer" onClick={close}>
-                    <FaRegTimesCircle className="text-destructive" />
+                    <FaRegTimesCircle className="text-destructive text-lg" />
                 </div>
                 {children}
             </div>
