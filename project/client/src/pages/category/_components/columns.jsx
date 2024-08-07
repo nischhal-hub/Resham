@@ -1,16 +1,9 @@
 import { Divide } from "lucide-react";
 import { ArrowUpDown, MoreHorizontal } from "lucide-react";
-import {
-    DropdownMenu,
-    DropdownMenuTrigger,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
-import { HiDotsVertical } from "react-icons/hi";
 
+import DeleteModal from "@/components/globals/DeleteModal";
+import ModalButton from "@/components/globals/ModalButton";
+import { FaRegEdit } from "react-icons/fa";
 export const columns = [
     {
         id: "categoryId",
@@ -50,24 +43,9 @@ export const columns = [
         header: () => <div className="font-bold text-md text-muted">Actions</div>,
         cell: ({ row }) => {
             return (
-                <div className="flex items-center justify-center gap-x-2">
-                        <div>
-                            <DropdownMenu>
-                                <DropdownMenuTrigger>
-                                    <Button variant="outline" className="py-1 px-1">
-                                        <HiDotsVertical />
-                                    </Button>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent className="w-fit">
-                                    <DropdownMenuItem>
-                                        <DropdownMenuLabel onClick={() => console.log(row.original)}>Delete</DropdownMenuLabel>
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem>
-                                        <DropdownMenuLabel>Edit</DropdownMenuLabel>
-                                    </DropdownMenuItem>
-                                </DropdownMenuContent>
-                            </DropdownMenu>
-                        </div>
+                <div className="flex items-center gap-x-2">
+                    <ModalButton modal={{label:"Edit Category", component:"EDIT_CATEGORY_MODAL",icon:<FaRegEdit size={20}/>}} className={"flex items-center justify-center"}/>
+                    <DeleteModal className={'px-3 py-2'} id={row.original.categoryId} deleteKey="CATEGORY"/>
                 </div>
             );
         },

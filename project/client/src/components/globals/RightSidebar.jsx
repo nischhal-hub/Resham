@@ -67,10 +67,8 @@ const RightSidebar = () => {
           </div>
           <div>
             <DropdownMenu>
-              <DropdownMenuTrigger>
-                <Button variant="outline" className="py-1 px-1">
+              <DropdownMenuTrigger className="p-2">
                   <HiDotsVertical />
-                </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-fit">
                 <DropdownMenuItem>

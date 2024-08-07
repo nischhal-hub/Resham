@@ -23,8 +23,18 @@ import supabase from "./supabase";
 }
 return category;
 }
-
+async function deleteCategory(id){
+    let { error } = await supabase
+    .from('Category')
+    .delete()
+    .eq('categoryId', id);
+    if(error) {
+        console.log(error);
+        throw new Error("Category could not be deleted");
+    }
+}
 export {
     getCategory,
-    createCategory
+    createCategory,
+    deleteCategory
 }
