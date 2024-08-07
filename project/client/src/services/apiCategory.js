@@ -33,8 +33,34 @@ async function deleteCategory(id){
         throw new Error("Category could not be deleted");
     }
 }
+async function getSingleCategory(id){
+    const { data, error } = await supabase
+    .from('Category')
+    .select('*')
+    .eq('categoryId', id)
+    if(error) {
+        console.error(error);
+        throw new Error("Category could not be found");
+    }
+    return data;
+}
+
+async function editCategory(data){
+
+    let { error } = await supabase
+    .from('Category')
+    .update(data.data)
+    .eq('categoryId', data.id);
+    if(error) {
+        console.log(error);
+        throw new Error("Category could not be updated");
+    }
+}
+
 export {
     getCategory,
     createCategory,
-    deleteCategory
+    deleteCategory,
+    getSingleCategory,
+    editCategory
 }

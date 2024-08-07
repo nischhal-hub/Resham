@@ -44,7 +44,13 @@ export const columns = [
         cell: ({ row }) => {
             return (
                 <div className="flex items-center gap-x-2">
-                    <ModalButton modal={{label:"Edit Category", component:"EDIT_CATEGORY_MODAL",icon:<FaRegEdit size={20}/>}} className={"flex items-center justify-center"}/>
+                    <ModalButton 
+                    modal={
+                        {label:"Edit Category", 
+                        component:"EDIT_CATEGORY_MODAL",
+                        icon:<FaRegEdit size={20}/>}}
+                    editId={row.original.categoryId} 
+                    className={"flex items-center justify-center"}/>
                     <DeleteModal className={'px-3 py-2'} id={row.original.categoryId} deleteKey="CATEGORY"/>
                 </div>
             );

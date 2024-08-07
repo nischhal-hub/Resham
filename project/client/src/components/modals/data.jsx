@@ -2,7 +2,9 @@ import AddUser from "./AddUser"
 import AddProduct from "./AddProduct";
 import AddCategory from "./AddCategory";
 import ErrorModal from "./ErrorModal";
-const getModal = (component) => {
+import EditCategory from "./EditCategory";
+
+const getModal = (component,editId) => {
     switch(component){
         case "ADD_USER_MODAL":
             return (<AddUser/>);
@@ -10,6 +12,8 @@ const getModal = (component) => {
             return (<AddProduct/>);
         case "ADD_CATEGORY_MODAL":
             return (<AddCategory/>);
+        case "EDIT_CATEGORY_MODAL":
+            return (<EditCategory editId={editId}/>);
         default:
             return (<ErrorModal/>);
     }

@@ -1,26 +1,41 @@
-import { createCategory } from "@/services/apiCategory";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { createCategory, editCategory, getSingleCategory } from "@/services/apiCategory";
+import { useMutation, useQuery, useQueryClient, useQueryErrorResetBoundary } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Button } from "../ui/button";
+import { useEffect } from "react";
 
-const AddCategory = () => {
-  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+const EditCategory = (editId) => {
+  const { register, handleSubmit, reset, formState: { errors },setValue } = useForm();
   const queryClient = useQueryClient();
+
+  const {data,isFetching} = useQuery({
+    queryKey: ["singleCategory",editId.editId],
+    queryFn: () => getSingleCategory(editId.editId),
+  })
+  useEffect(() => {
+    if (data && data.length > 0) {
+      setValue('categoryName', data[0].categoryName);
+    }
+  }, [data, setValue]);
+
+
   const { mutate, isLoading } = useMutation({
-    mutationFn: createCategory,
+    mutationFn: editCategory,
     onSuccess: () => {
       toast.success("Category created successfully");
-      queryClient.invalidateQueries(["category"]);
+      queryClient.invalidateQueries(["category","singleCategory"]);
     },
     onError: (error) => {
       console.log(error)
       toast.error("Something went wrong");
     }
   });
-  const onSubmit=(data)=> {
-
-    mutate({...data})
+  const onSubmit=(formData)=> {
+    mutate({id:editId.editId,data:formData})
+  }
+  if(isFetching){
+    return <div>Loading...</div>
   }
     return (
         <div>
@@ -39,12 +54,12 @@ const AddCategory = () => {
                     {errors.categoryName && <p className="text-red-500 text-xs italic">{errors.categoryName.message}</p>}
                 </div>
                 <div className="flex items-center gap-4">
-                <Button variant="ghost" className="text-md" onClick={()=>reset()}>Reset</Button>
-                <Button disabled={isLoading} type="submit" className="w-full flex-1 text-md">Create</Button>
+                <Button variant="ghost" className="text-md" onClick={()=>reset()}>Discard</Button>
+                <Button disabled={isLoading} type="submit" className="w-full flex-1 text-md">Edit</Button>
                 </div>
             </form>
         </div>
     )
 }
 
-export default AddCategory;
+export default EditCategory;

@@ -4,7 +4,7 @@ import useModal from '@/hooks/useModal'
 import Modal from './Modal'
 import getModal from '../modals/data'
 
-const ModalButton = ({ variant, size, className, modal }) => {
+const ModalButton = ({ variant, size, className, modal,editId }) => {
     const { isOpen,open,close } = useModal();
     return (
         <>
@@ -12,7 +12,7 @@ const ModalButton = ({ variant, size, className, modal }) => {
             {isOpen && (
                 <Modal close={close}>
                     <h2 className='text-xl font-medium text-center'>{ modal?.label || "Default Modal"}</h2>
-                    {getModal(modal?.component || "")}
+                    {getModal(modal?.component || "",editId ||"")}
                 </Modal>)}
         </>
     )
