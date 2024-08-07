@@ -5,13 +5,13 @@ import toast from "react-hot-toast";
 import { Button } from "../ui/button";
 import { useEffect } from "react";
 
-const EditCategory = (editId) => {
+const EditCategory = ({editId,close}) => {
   const { register, handleSubmit, reset, formState: { errors },setValue } = useForm();
   const queryClient = useQueryClient();
 
   const {data,isFetching} = useQuery({
-    queryKey: ["singleCategory",editId.editId],
-    queryFn: () => getSingleCategory(editId.editId),
+    queryKey: ["singleCategory",editId],
+    queryFn: () => getSingleCategory(editId),
   })
   useEffect(() => {
     if (data && data.length > 0) {
@@ -25,6 +25,7 @@ const EditCategory = (editId) => {
     onSuccess: () => {
       toast.success("Category created successfully");
       queryClient.invalidateQueries(["category","singleCategory"]);
+      close();
     },
     onError: (error) => {
       console.log(error)
@@ -32,7 +33,7 @@ const EditCategory = (editId) => {
     }
   });
   const onSubmit=(formData)=> {
-    mutate({id:editId.editId,data:formData})
+    mutate({id:editId,data:formData})
   }
   if(isFetching){
     return <div>Loading...</div>

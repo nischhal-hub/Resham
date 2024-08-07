@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Button } from "../ui/button";
 
-const AddCategory = () => {
+const AddCategory = ({close}) => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const queryClient = useQueryClient();
   const { mutate, isLoading } = useMutation({
@@ -12,6 +12,7 @@ const AddCategory = () => {
     onSuccess: () => {
       toast.success("Category created successfully");
       queryClient.invalidateQueries(["category"]);
+      close();
     },
     onError: (error) => {
       console.log(error)

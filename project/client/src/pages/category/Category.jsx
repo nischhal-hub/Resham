@@ -9,7 +9,6 @@ const Category = () => {
         queryKey: ["category"],
         queryFn: getCategory
     });
-    console.log(category)
     return (
         <div className="w-full min-h-screen">
             <PageHeader title="Category" />
