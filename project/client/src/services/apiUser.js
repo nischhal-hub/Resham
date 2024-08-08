@@ -23,7 +23,7 @@ const { error } = await supabase
 if(error)
     {
         console.error(error);
-        throw new Error("Cabin could not be delete")
+        throw new Error("User could not be delete")
 
     }
 
