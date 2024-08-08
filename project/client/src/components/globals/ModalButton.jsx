@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button } from '../ui/button'
 import useModal from '@/hooks/useModal'
 import Modal from './Modal'

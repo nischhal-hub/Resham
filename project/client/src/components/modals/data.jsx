@@ -3,6 +3,8 @@ import AddProduct from "./AddProduct";
 import AddCategory from "./AddCategory";
 import ErrorModal from "./ErrorModal";
 import EditCategory from "./EditCategory";
+import AddSupplier from "./AddSupplier";
+import Editsupplier from "./EditSupplier";
 
 const getModal = (component,editId,close) => {
     switch(component){
@@ -14,6 +16,10 @@ const getModal = (component,editId,close) => {
             return (<AddCategory close={close}/>);
         case "EDIT_CATEGORY_MODAL":
             return (<EditCategory editId={editId} close={close}/>);
+            case "ADD_SUPPLIER_MODAL":
+                return (<AddSupplier close={close}/>);
+                case "EDIT_SUPPLIER_MODAL":
+                return <Editsupplier editId={editId} close={close}/>
         default:
             return (<ErrorModal/>);
     }

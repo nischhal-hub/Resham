@@ -1,30 +1,30 @@
-import { editCategory, getSingleCategory } from "@/services/apiCategory";
+import { editSupplier, getSingleSupplier } from "@/services/apiSupplier";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Button } from "../ui/button";
 import { useEffect } from "react";
 
-const EditCategory = ({ editId, close }) => {
+const EditSupplier = ({ editId, close }) => {
   const { register, handleSubmit, reset, formState: { errors }, setValue } = useForm();
   const queryClient = useQueryClient();
 
   const { data, isFetching, error } = useQuery({
-    queryKey: ["singleCategory", editId],
-    queryFn: () => getSingleCategory(editId),
+    queryKey: ["singleSupplier", editId],
+    queryFn: () => getSingleSupplier(editId),
   });
 
   useEffect(() => {
     if (data && data.length > 0) {
-      setValue('categoryName', data[0].categoryName);
+      setValue('supplierName', data[0].supplierName);
     }
   }, [data, setValue]);
 
   const { mutate, isLoading } = useMutation({
-    mutationFn: editCategory,
+    mutationFn: editSupplier,
     onSuccess: () => {
-      toast.success("Category updated successfully");
-      queryClient.invalidateQueries(["category", "singleCategory"]);
+      toast.success("Supplier updated successfully");
+      queryClient.invalidateQueries(["supplier", "singleSupplier"]);
       close();
     },
     onError: (error) => {
@@ -42,24 +42,24 @@ const EditCategory = ({ editId, close }) => {
   }
 
   if (error) {
-    return <div>Error loading category data.</div>;
+    return <div>Error loading supplier data.</div>;
   }
 
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="categoryName">
-            Category Name
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="supplierName">
+            Supplier Name
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="categoryName"
+            id="supplierName"
             type="text"
-            placeholder="Category name"
-            {...register('categoryName', { required: "Category name is required" })}
+            placeholder="Supplier Name"
+            {...register('supplierName', { required: "Supplier name is required" })}
           />
-          {errors.categoryName && <p className="text-red-500 text-xs italic">{errors.categoryName.message}</p>}
+          {errors.supplierName && <p className="text-red-500 text-xs italic">{errors.supplierName.message}</p>}
         </div>
         <div className="flex items-center gap-4">
           <Button variant="ghost" className="text-md" onClick={() => reset()}>Discard</Button>
@@ -70,6 +70,6 @@ const EditCategory = ({ editId, close }) => {
       </form>
     </div>
   );
-};
+}
 
-export default EditCategory;
+export default EditSupplier;

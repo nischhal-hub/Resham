@@ -4,6 +4,7 @@ import useModal from '@/hooks/useModal';
 import Modal from './Modal';
 import { deleteCategory } from '@/services/apiCategory';
 import { deleteUsers } from '@/services/apiUser';
+import { deleteSupplier } from '@/services/apiSupplier';
 import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useQueryClient} from '@tanstack/react-query'; 
@@ -22,6 +23,17 @@ const DeleteModal = ({ variant, size, className, id, deleteKey }) => {
     },
     onError: () => toast.error("Category couldn't be deleted"),
   });
+  const { mutate:delSupplier } = useMutation({
+    mutationFn: deleteSupplier,
+    onSuccess: () => {
+      toast.success('Data deleted successfully');
+      queryClient.invalidateQueries({ queryKey: ['supplier'] });
+      close();
+    },
+    onError: () => toast.error("supplier couldn't be deleted"),
+  });
+
+
 
   const handleDelete = () => {
     switch (deleteKey) {
@@ -29,6 +41,8 @@ const DeleteModal = ({ variant, size, className, id, deleteKey }) => {
         return delCategory(id);
       case 'USERS':
         return deleteUsers;
+        case 'SUPPLIER':
+        return  delSupplier(id);
       default:
         throw new Error('Invalid delete key');
     }
