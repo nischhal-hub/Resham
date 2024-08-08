@@ -1,9 +1,11 @@
 // components/SideNav/SideNav.js
-import { FaCog, FaUser } from "react-icons/fa";
+import { FaCog, FaRegUser, FaUser } from "react-icons/fa";
 import {
   MdOutlineDashboardCustomize,
   MdOutlineInventory2,
 } from "react-icons/md";
+import { TbCategoryPlus } from "react-icons/tb";
+import { RiTruckLine } from "react-icons/ri";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsGraphUp } from "react-icons/bs";
 import { IoIosHelpCircleOutline } from "react-icons/io";
@@ -23,16 +25,28 @@ export const sidebarData = [
     icon: <MdOutlineInventory2 />,
   },
   {
-    id: 1,
+    id: 3,
     title: "Sales Order",
     path: "/salesorder",
     icon: <AiOutlineShoppingCart />,
   },
   {
-    id: 1,
+    id: 4,
     title: "User",
     path: "/user",
-    icon: <FaUser />,
+    icon: <FaRegUser/>,
+  },
+  {
+    id: 5,
+    title: "Category",
+    path: "/category",
+    icon: <TbCategoryPlus />,
+  },
+  {
+    id: 6,
+    title: "Suppliers",
+    path: "/supplier",
+    icon: <RiTruckLine />,
   },
 ];
 

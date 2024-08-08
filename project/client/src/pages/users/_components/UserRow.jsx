@@ -6,7 +6,7 @@ export default function UserRow({ user}) {
   const queryClient = useQueryClient();
   const { user_id, user_name, user_contact, user_role, user_address } = user;
 
-  const { isLoading: isDeleting, mutate } = useMutation({
+  const { isLoading: isDeleting, mutate:deleteCategory } = useMutation({
     mutationFn: deleteUsers,
     onSuccess: () => {
       toast.success('Data deleted successfully');

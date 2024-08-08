@@ -67,10 +67,8 @@ const RightSidebar = () => {
           </div>
           <div>
             <DropdownMenu>
-              <DropdownMenuTrigger>
-                <Button variant="outline" className="py-1 px-1">
+              <DropdownMenuTrigger className="p-2">
                   <HiDotsVertical />
-                </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-fit">
                 <DropdownMenuItem>
@@ -92,22 +90,22 @@ const RightSidebar = () => {
         <h2 className="text-md font-semibold">Quick actions</h2>
         <div>
           <ul className="flex flex-col gap-2">
-          <li><div className="flex items-center justify-between text-gray-700 mt-3">
-              <p className="flex items-center gap-2 font-semibold "><FaBox size={20} /> Add product</p>
-              <p className="text-sm">Ctrl + P</p>
-            </div></li>
-            <li><div className="flex items-center justify-between text-gray-700">
-              <p className="flex items-center gap-2 font-semibold"><TiDocumentAdd size={20} /> Create Order</p>
-              <p className="text-sm">Ctrl + B</p>
-            </div></li>
-            <li><div className="flex items-center justify-between text-gray-700">
-              <p className="flex items-center gap-2 font-semibold"><FaTruck size={20} /> Add Supplier</p>
-              <p className="text-sm">Ctrl + K</p>
-            </div></li>
-            <li><div className="flex items-center justify-between text-gray-700">
-              <p className="flex items-center gap-2 font-semibold"><PiExportFill size={20} /> Export</p>
-              <p className="text-sm">Ctrl + S</p>
-            </div></li>
+          {[
+            { label: 'Add product', icon: <FaBox size={20} />, command: 'Ctrl + P' },
+            { label: 'Create Order', icon: <TiDocumentAdd size={20} />, command: 'Ctrl + B' },
+            { label: 'Add Supplier', icon: <FaTruck size={20} />, command: 'Ctrl + K' },
+            { label: 'Export', icon: <PiExportFill size={20} />, command: 'Ctrl + S' },
+          ].map((item, index) => (
+            <li key={index}>
+              <div className="flex items-center justify-between text-gray-700 mt-3">
+                <p className="flex items-center gap-2 font-semibold">
+                  {item.icon}
+                  {item.label}
+                </p>
+                <p className="text-sm">{item.command}</p>
+              </div>
+            </li>
+          ))}
           </ul>
         </div>
       </div>
