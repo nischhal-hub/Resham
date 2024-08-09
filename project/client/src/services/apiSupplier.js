@@ -31,7 +31,7 @@ if(error)
 
 export   async function createSupplier(newSupplier)
 {
-    
+    console.log(newSupplier)
 let { data:Supplier, error } = await supabase
 .from('Supplier')
 .insert([ newSupplier])
@@ -44,17 +44,23 @@ return Supplier;
 }
 
 
- export async function editSupplier(data){
-
-    let { error } = await supabase
-    .from('Supplier')
-    .update(data.data)
-    .eq('supplierId', data.id);
-    if(error) {
-        console.log(error);
-        throw new Error("Supplier could not be updated");
+export async function editSupplier(data) {
+    try {
+        const { error } = await supabase
+            .from('Supplier')
+            .update(data.data)
+            .eq('supplierId', data.id);
+            
+        if (error) {
+            console.error('Error:', error);
+            throw new Error("Supplier could not be updated");
+        }
+    } catch (err) {
+        console.error('Caught error:', err);
+        throw err;
     }
 }
+
 
 export async function getSingleSupplier(id){
     const { data, error } = await supabase
