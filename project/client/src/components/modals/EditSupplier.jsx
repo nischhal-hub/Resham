@@ -17,6 +17,8 @@ const EditSupplier = ({ editId, close }) => {
   useEffect(() => {
     if (data && data.length > 0) {
       setValue('supplierName', data[0].supplierName);
+      setValue('supplierContact', data[0].supplierContact);
+    setValue('supplierEmail', data[0].supplierEmail);
     }
   }, [data, setValue]);
 
@@ -61,6 +63,35 @@ const EditSupplier = ({ editId, close }) => {
           />
           {errors.supplierName && <p className="text-red-500 text-xs italic">{errors.supplierName.message}</p>}
         </div>
+
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="supplierContact">
+            Supplier Contact
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="supplierContact"
+            type="text"
+            placeholder="Supplier Contact"
+            {...register('supplierContact', { required: "Supplier Contact is required" })}
+          />
+          {errors.supplierContact && <p className="text-red-500 text-xs italic">{errors.supplierContact.message}</p>}
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="supplierEmail">
+            Supplier Email
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="supplierEmail"
+            type="text"
+            placeholder="Supplier Email"
+            {...register('supplierEmail', { required: "Supplier Email is required" })}
+          />
+          {errors.supplierEmail && <p className="text-red-500 text-xs italic">{errors.supplierEmail.message}</p>}
+        </div>
+        
         <div className="flex items-center gap-4">
           <Button variant="ghost" className="text-md" onClick={() => reset()}>Discard</Button>
           <Button disabled={isLoading} type="submit" className="w-full flex-1 text-md">
