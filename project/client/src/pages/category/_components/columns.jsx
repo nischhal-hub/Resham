@@ -4,6 +4,8 @@ import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 import DeleteModal from "@/components/globals/DeleteModal";
 import ModalButton from "@/components/globals/ModalButton";
 import { FaRegEdit } from "react-icons/fa";
+
+
 export const columns = [
     {
         id: "categoryId",
@@ -14,7 +16,6 @@ export const columns = [
         id: "categoryName",
         accessorKey: "categoryName",
         header: ({ column }) => {
-            console.log(column)
             const isSorted = column?.getIsSorted();
             const toggleSorting = column?.toggleSorting;
 
