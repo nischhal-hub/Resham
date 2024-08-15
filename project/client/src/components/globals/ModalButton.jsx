@@ -10,7 +10,6 @@ const ModalButton = ({ variant, size, className, modal,editId }) => {
             <Button variant={variant || "default"} size={size || "default"} className={className} onClick={open}>{modal?.icon || modal?.label || "No label"}</Button>
             {isOpen && (
                 <Modal close={close}>
-                    <h2 className='text-xl font-medium text-center'>{ modal?.label || "Default Modal"}</h2>
                     {getModal(modal?.component || "",editId ||"",close)}
                 </Modal>)}
         </>

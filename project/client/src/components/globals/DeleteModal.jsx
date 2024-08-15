@@ -23,6 +23,7 @@ const DeleteModal = ({ variant, size, className, id, deleteKey }) => {
     },
     onError: () => toast.error("Category couldn't be deleted"),
   });
+
   const { mutate:delSupplier } = useMutation({
     mutationFn: deleteSupplier,
     onSuccess: () => {
@@ -33,6 +34,16 @@ const DeleteModal = ({ variant, size, className, id, deleteKey }) => {
     onError: () => toast.error("supplier couldn't be deleted"),
   });
 
+  const { mutate:delUsers } = useMutation({
+    mutationFn: deleteUsers,
+    onSuccess: () => {
+      toast.success('Data deleted successfully');
+      queryClient.invalidateQueries({ queryKey: ['users'] });
+      close();
+    },
+    onError: () => toast.error("User couldn't be deleted"),
+  });
+
 
 
   const handleDelete = () => {
@@ -40,8 +51,8 @@ const DeleteModal = ({ variant, size, className, id, deleteKey }) => {
       case 'CATEGORY':
         return delCategory(id);
       case 'USERS':
-        return deleteUsers;
-        case 'SUPPLIER':
+        return delUsers(id);
+      case 'SUPPLIER':
         return  delSupplier(id);
       default:
         throw new Error('Invalid delete key');
@@ -63,7 +74,7 @@ const DeleteModal = ({ variant, size, className, id, deleteKey }) => {
           <h2 className="text-xl font-medium text-center">Delete Item</h2>
           <div className="w-full object-contain flex justify-center items-center pt-2">
             <img
-              src="public/assets/trendy-dustbin-concepts-vector.jpg"
+              src="public/assets/trendy-dustbin-concepts-vector.png"
               alt="dustbin"
               className="w-20"
             />

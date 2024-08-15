@@ -47,6 +47,7 @@ const EditCategory = ({ editId, close }) => {
 
   return (
     <div>
+      <h2 className="text-center text-xl font-bold">Edit Category</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="categoryName">
