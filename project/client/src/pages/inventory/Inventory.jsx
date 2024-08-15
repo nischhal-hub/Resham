@@ -7,6 +7,7 @@ export default function Inventory() {
     <div className='w-full min-h-screen'>
       <PageHeader title="Inventory" />
       <ModalButton variant="destructive" size="sm" modal={{label:"Add Product", component:"ADD_PRODUCT_MODAL"}}/>
+      
     </div>
   )
 }

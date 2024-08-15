@@ -1,12 +1,29 @@
+import DataTable from '@/components/table/data-table'
 import PageHeader from '@/components/ui/page-header'
-import React from 'react'
+import { columns } from '@/pages/suppliers/_components/columns'
+import getSupplier from '@/services/apiSupplier'
+import { useQuery } from '@tanstack/react-query'
 
-const Suppliers = () => {
+const Supplier = () => {
+    const { data: supplier, isLoading, error } = useQuery({
+        queryKey: ["supplier"],
+        queryFn: getSupplier,
+    });
+
     return (
         <div className="w-full min-h-screen">
-            <PageHeader title="Category" />
+            <PageHeader title="Supplier" /> {/* Fixed title to "Supplier" */}
+            <DataTable 
+                data={supplier || []} 
+                columns={columns} 
+                filter={{ label: "Search", id: "supplierName" }} 
+                add={{
+                    component: "ADD_SUPPLIER_MODAL",
+                    label: " Add Supplier",
+                }} 
+            />
         </div>
-  )
+    )
 }
 
-export default Suppliers
+export default Supplier

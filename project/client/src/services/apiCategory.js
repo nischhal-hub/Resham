@@ -57,10 +57,23 @@ async function editCategory(data){
     }
 }
 
+//gets the count of products in categories
+async function getCategoryProductCount(){
+    let { data, error } = await supabase
+    .rpc('getCategoryProductCount')
+    if (error) console.error(error)
+    else console.log(data)
+    return data;
+}
+
+
+
 export {
     getCategory,
     createCategory,
     deleteCategory,
     getSingleCategory,
-    editCategory
+    editCategory,
+    getCategoryProductCount
 }
+
