@@ -48,7 +48,7 @@ export async function editSupplier(data) {
     try {
         const { error } = await supabase
             .from('Supplier')
-            .update(data.data)
+            .update(data.data) 
             .eq('supplierId', data.id);
             
         if (error) {
