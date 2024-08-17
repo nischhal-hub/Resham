@@ -2,6 +2,7 @@ import { createProduct } from "@/services/apiProduct";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { Button } from "../ui/button";
 
 const AddProduct = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -18,8 +19,9 @@ const AddProduct = () => {
         }
     });
 
+
     function onSubmit(data) {
-        console.log(data);
+        //console.log(objToFormData(data))
         mutate({ ...data });
     }
 
@@ -38,10 +40,62 @@ const AddProduct = () => {
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="productName"
                         type="text"
-                        placeholder="Product_Name..."
+                        placeholder="Product name"
                         {...register('productName', { required: "ProductName is required" })}
                     />
                     {errors.productName && <p className="text-red-500 text-xs italic">{errors.productName.message}</p>}
+                </div>
+                <div className="mb-4">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="productName">
+                        Product Image:
+                    </label>
+                    <input
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="productImage"
+                        type="file"
+                        placeholder="Product image"
+                        {...register('productImage', { required: "Product image is required" })}
+                    />
+                    {errors.productName && <p className="text-red-500 text-xs italic">{errors.productImage.message}</p>}
+                </div>
+                <div className="mb-4">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="supplierId">
+                        Select Category
+                    </label>
+                    <input
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="categoryId"
+                        type="text"
+                        placeholder="Select category"
+                        {...register('categoryId', { required: "catagoryId  is required" })}
+                    />
+                    {errors.categoryId && <p className="text-red-500 text-xs italic">{errors.categoryId.message}</p>}
+                </div>
+                <div className="mb-4">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="supplierId">
+                        Select Supplier
+                    </label>
+                    <input
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="supplierId"
+                        type="text"
+                        placeholder="Select supplier"
+                        {...register('supplierId', { required: "catagoryId  is required" })}
+                    />
+                    {errors.supplierId && <p className="text-red-500 text-xs italic">{errors.supplierId.message}</p>}
+                </div>
+                <div className="mb-4">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="supplierId">
+                        Incoming stock:
+                    </label>
+                    <input
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="incomingStock"
+                        type="number"
+                        placeholder="0"
+                        {...register('incomingStock', { required: "Stock is required." })}
+                    />
+                    {errors.incomingStock && <p className="text-red-500 text-xs italic">{errors.incomingStock.message}</p>}
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="tags">
@@ -57,19 +111,7 @@ const AddProduct = () => {
                     {errors.tags && <p className="text-red-500 text-xs italic">{errors.tags.message}</p>}
                 </div>
 
-                <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="supplierId">
-                        catagoryId
-                    </label>
-                    <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="catagoryId"
-                        type="text"
-                        placeholder="catagoryId"
-                        {...register('catagoryId', { required: "catagoryId  is required" })}
-                    />
-                    {errors.catagoryId && <p className="text-red-500 text-xs italic">{errors.catagoryId.message}</p>}
-                </div>
+              
 
                 {/* <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="user_address">
@@ -84,28 +126,15 @@ const AddProduct = () => {
               {errors.user_address && <p className="text-red-500 text-xs italic">{errors.user_address.message}</p>}
             </div> */}
 
-                <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="supplierId">
-                        supplierId:
-                    </label>
-                    <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="supplierId"
-                        type="number"
-                        placeholder="supplierId"
-                        {...register('supplierId', { required: "supplierId  is required" })}
-                    />
-                    {errors.supplierId && <p className="text-red-500 text-xs italic">{errors.supplierId.message}</p>}
-                </div>
+                
 
                 <div className="flex items-center justify-between">
-                    <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    <Button                       
                         type="submit"
                         disabled={isLoading}
                     >
-                        Add User
-                    </button>
+                        Add Product
+                    </Button>
                 </div>
             </form>
         </div>
