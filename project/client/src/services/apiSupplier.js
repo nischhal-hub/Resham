@@ -43,7 +43,6 @@ if(error) {
 return Supplier;
 }
 
-
 export async function editSupplier(data) {
     try {
         const { error } = await supabase

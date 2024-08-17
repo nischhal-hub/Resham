@@ -1,7 +1,7 @@
 import supabase,{supabaseUrl} from "./supabase";
 export default async function getUsers() {
 let { data: Product, error } = await supabase
-.from('Product')
+.from('Product-inventory')
 .select('*')
 
         
@@ -13,18 +13,27 @@ let { data: Product, error } = await supabase
     return Product;
 }
 
+async function uploadImages(file,path) {
+    const { data, error } = await supabase.storage.from('productImage').upload(`${path}/`+file[0].name ,file[0]);
+    if(error) {
+        console.log(error);
+        throw new Error(" Product could not be created");
+    }
+}
+
 export  async function createProduct(newProduct)
 {
-    // const imageName=`${Math.random()}-${newProduct.productImage.name}`.replace("/","");
-    // const imagePath=`${supabaseUrl}/storage/v1/object/public/cabin-images/${imageName}`
-   
+    console.log(newProduct.productImage[0].name)
+    uploadImages(newProduct.productImage,"public");
+    newProduct = {...newProduct, productImage:newProduct.productImage[0].name}
+    console.log(newProduct)
     const { data:Product, error } = await supabase
-    .from('Product')
+    .from('Product-inventory')
     .insert([newProduct])
     .select()
     if(error) {
         console.log(error);
-        throw new Error(" Product could not be create");
+        throw new Error(" Product could not be created");
     }
     return Product;
 }
