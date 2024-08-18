@@ -9,6 +9,7 @@ import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useQueryClient} from '@tanstack/react-query'; 
 import { MdOutlineDelete } from 'react-icons/md';
+import { deleteProduct } from '@/services/apiProduct';
 
 const DeleteModal = ({ variant, size, className, id, deleteKey }) => {
   const { isOpen, open, close } = useModal();
@@ -44,6 +45,16 @@ const DeleteModal = ({ variant, size, className, id, deleteKey }) => {
     onError: () => toast.error("User couldn't be deleted"),
   });
 
+  const { mutate:delProduct } = useMutation({
+    mutationFn: deleteProduct,
+    onSuccess: () => {
+      toast.success('Data deleted successfully');
+      queryClient.invalidateQueries({ queryKey: ['product'] });
+      close();
+    },
+    onError: () => toast.error("Product couldn't be deleted"),
+  });
+
 
 
   const handleDelete = () => {
@@ -54,6 +65,8 @@ const DeleteModal = ({ variant, size, className, id, deleteKey }) => {
         return delUsers(id);
       case 'SUPPLIER':
         return  delSupplier(id);
+      case 'PRODUCT':
+        return  delProduct(id);
       default:
         throw new Error('Invalid delete key');
     }

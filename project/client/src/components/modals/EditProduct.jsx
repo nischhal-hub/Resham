@@ -1,4 +1,4 @@
-import { createProduct } from "@/services/apiProduct";
+import { createProduct, editProduct,getSingleProduct } from "@/services/apiProduct";
 import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -8,13 +8,28 @@ import { useEffect, useState } from "react";
 import { getCategory } from "@/services/apiCategory";
 
 
-const AddProduct = ({ close }) => {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+const EditProduct = ({editId, close }) => {
+    const { register, handleSubmit, reset, formState: { errors }, setValue } = useForm();
     const queryClient = useQueryClient();
+    const { data: product, isFetching, error } = useQuery({
+        queryKey: ["singleProduct", editId],
+        queryFn: () => getSingleProduct(editId),
+    })
+    useEffect(() => {
+        console.log(product)
+        if (product && product.length > 0) {
+            setValue('productName', product[0].productName);
+            setValue('productPrice', product[0].productPrice);
+            setValue('categoryId', product[0].categoryId);
+            setValue('supplierId', product[0].supplierId);
+            setValue('incomingStock', product[0].incomingStock);
+            setValue('tags', product[0].tags);
+          }
+    },[product,setValue])
     const { mutate, isLoading } = useMutation({
-        mutationFn: createProduct,
+        mutationFn: editProduct,
         onSuccess: () => {
-            toast.success("Data created successfully");
+            toast.success("Data updated successfully");
             queryClient.invalidateQueries(["product"]);
             close();
             reset();
@@ -32,9 +47,9 @@ const AddProduct = ({ close }) => {
         queryFn: () => getCategory(),
     })
 
-    function onSubmit(data) {
+    function onSubmit(editData) {
         //console.log(objToFormData(data))
-        mutate({ ...data });
+        mutate({id:editId, data:editData});
     }
 
     function onError(error) {
@@ -152,29 +167,10 @@ const AddProduct = ({ close }) => {
                     {errors.tags && <p className="text-red-500 text-xs italic">{errors.tags.message}</p>}
                 </div>
 
-
-
-                {/* <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="user_address">
-                Product Image
-              </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="productImage"
-                type="file"
-                {...register('productImage', { required: "Address is required" })}
-              />
-              {errors.user_address && <p className="text-red-500 text-xs italic">{errors.user_address.message}</p>}
-            </div> */}
-
-
-
-                <div className="flex items-center justify-between">
-                    <Button
-                        type="submit"
-                        disabled={isLoading}
-                    >
-                        Add Product
+                <div className="flex items-center gap-4">
+                    <Button variant="ghost" className="text-md" onClick={() => reset()}>Discard</Button>
+                    <Button disabled={isLoading} type="submit" className="w-full flex-1 text-md">
+                        {isLoading ? "Saving..." : "Edit"}
                     </Button>
                 </div>
             </form>
@@ -184,4 +180,4 @@ const AddProduct = ({ close }) => {
     )
 };
 
-export default AddProduct;
+export default EditProduct;
